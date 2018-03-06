@@ -1,0 +1,24 @@
+
+************Thời gian************* với Thư Viện Carbon
+	+ Để có thể thêm ngày giờ kiểu vd: (7 phút trước) chúng ta dùng thư viện carbon: 
+	ta khai báo 'Carbon' => 'Carbon\Carbon', ở đến dưới cùng của mảng 'aliases'  trong config / app.php thì nó sẽ nhúng thư viện này tới tất cả các trang:: không cần khai báo lại
+	+ Hoặc có thể khai báo  use Carbon\Carbon ở trang cần sủ dụng
+	+ Carbon::createFromTimestamp(strtotime($time))->diffInHours Trả về so với hiện tại là bao nhiêu giờ. Chúng ta có thể dùng nó để so sánh với 24 để: nếu tin đăng trước 24 giờ thì in ra $time, ngược lại in ra 1233 giờ trước với hàm diffforHumans()
+	tham khảo::
+	https://viblo.asia/p/thao-tac-datetime-voi-carbon-trong-php-7prv31woMKod
+	// Khởi tạo theo date: Thời gian mặc định là thời gian hiện tại
+	Carbon::createFromDate($year, $month, $day, $tz);
+
+	// Khởi tạo theo time: Ngày tháng năm mặc định là ngày tháng năm hiện tại
+	Carbon::createFromTime($hour, $minute, $second, $tz);
+
+	// Khởi tạo theo cả date và time
+	Carbon::create($year, $month, $day, $hour, $minute, $second, $tz);
+
+	// Khởi tạo theo datetime và format xác định
+	Carbon::createFromFormat($format, $time, $tz);
+
+	// Khởi tạo datetime để làm việc với [unix timestamp](https://en.wikipedia.org/wiki/Unix_time)
+	Carbon::createFromTimestamp($timestamp, $tz)
+
+	str_slug(text,'-') chuyển 1 chuỗi sang dạng url
